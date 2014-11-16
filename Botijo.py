@@ -12,13 +12,13 @@ ID_sv = os.path.expanduser('~/.botijo_lastid')
 
 
 if not os.path.exists(ID_sv):
-    since = "533921473216643073"
+    since = "533935298606952448"
 else:
     f = open(ID_sv, 'r')
     since = f.readline().strip()
     f.close()
 
-frases = ("aquí tienes", "miaaau", "aquí tienes tu gato gordo", "MIAU!", "prrr prrrr")
+frases = ("miaaau", "toma, tu gato gordo", "MIAU!", "prrr prrrr")
 
 while 1:
 
@@ -26,7 +26,7 @@ while 1:
 
     for status in twts:
         print (status.user.screen_name + ">> " + status.text + " ID: {}".format(status.id))
-        api.update_status("@" + status.user.screen_name  + " " + URLs.gatos[random.randrange(0,URLs.gatos.__len__(),1)] + frases[random.randrange(0,frases.__len__(),1)], in_reply_to_status_id=status.id)
+        api.update_status("@" + status.user.screen_name  + " " + URLs.gatos[random.randrange(0,URLs.gatos.__len__(),1)] + " " + frases[random.randrange(0,frases.__len__(),1)], in_reply_to_status_id=status.id)
         since = "{}".format(status.id)
 
     f = open(ID_sv, 'w')
